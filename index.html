@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -6,129 +6,210 @@
 <title>Checklist Mercado ToDay</title>
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
-    padding: 20px;
-    
-    /* Garante footer no final */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
 
-  h1 {
-    text-align: center;
-  }
+body{
+  font-family:Arial,sans-serif;
+  background:#0f172a;
+  color:white;
+  padding:20px;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
 
-  .item {
-    background: #1e293b;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+/* TÍTULO */
 
-  .checked span {
-    text-decoration: line-through;
-    opacity: 0.6;
-  }
+h1{
+  text-align:center;
+}
 
-  .divider {
-    margin: 20px 0;
-    text-align: center;
-    opacity: 0.6;
-  }
+/* ITENS */
 
-  .info {
-    background: #1e293b;
-    padding: 12px;
-    border-radius: 10px;
-    margin: 10px 0;
-    font-size: 14px;
-  }
+.item{
+  background:#1e293b;
+  padding:14px;
+  margin:10px 0;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:0.25s;
+  border:1px solid rgba(255,255,255,0.03);
+}
 
-  .footer {
-    margin-top: auto;
-    text-align: center;
-    font-size: 12px;
-    opacity: 0.6;
-    padding-top: 20px;
-  }
+/* HOVER */
+
+.item:hover{
+  transform:translateY(-2px);
+}
+
+/* CHECKBOX */
+
+.item input[type="checkbox"]{
+  width:18px;
+  height:18px;
+  cursor:pointer;
+}
+
+/* ITEM CONCLUÍDO */
+
+.checked{
+  background:rgba(34,197,94,0.18);
+  border:1px solid rgba(34,197,94,0.45);
+  box-shadow:
+    0 0 20px rgba(34,197,94,0.18),
+    inset 0 0 10px rgba(34,197,94,0.08);
+}
+
+/* TEXTO CONCLUÍDO */
+
+.checked span{
+  text-decoration:line-through;
+  color:#86efac;
+}
+
+/* CHECKBOX VERDE */
+
+.checked input[type="checkbox"]{
+  accent-color:#22c55e;
+}
+
+/* DIVISOR */
+
+.divider{
+  margin:20px 0;
+  text-align:center;
+  opacity:0.4;
+  letter-spacing:2px;
+}
+
+/* INFO */
+
+.info{
+  background:#1e293b;
+  padding:14px;
+  border-radius:14px;
+  margin:10px 0;
+  font-size:14px;
+  line-height:1.5;
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+/* FOOTER */
+
+.footer{
+  margin-top:auto;
+  text-align:center;
+  font-size:12px;
+  opacity:0.6;
+  padding-top:20px;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>🛒 Checklist Mercado ToDay </h1>
-  
-<div class="divider">_________</div>
-  
-  <div class="info">
-⚠️ Importante para ler: Enciar apenas com base na disponibilidade dos itens, caso não tenha estoque não enviar outro produto que não esteja na lista, obrigado!
+<h1>🛒 Checklist Mercado ToDay</h1>
 
-
-</div>
-  <div class="divider">_________</div>
-  
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🥖 - Pães de Sal (10UN)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🥚 - Ovos (12UN)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🍪 - Trakinas Chocolate (2UN)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🍫 - Choco Trio (1UN)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🧀 - Mussarela (500g)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🥛 - Iogurte Misto Mini (3UN)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🧃 - Todynho (2UN)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🍬 - Caixa de Chocolate Lacta (1UN)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🥜 - Mix Castanhas (1UN)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🥛 - Leite Semi Hércules (1L)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🍅 - Tomates (3UN)</span></div>
-
-<div class="item"><input type="checkbox" onchange="toggle(this)"> <span>🍞 - Pão Integral Frutas Nutrella (1UN)</span></div>
-
-<div class="divider">_________</div>
+<div class="divider">────────────</div>
 
 <div class="info">
-  
+⚠️ Importante para ler: Enviar apenas com base na disponibilidade dos itens, caso não tenha estoque não enviar outro produto que não esteja na lista, obrigado!
+</div>
+
+<div class="divider">────────────</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🥖 - Pães de Sal (10UN)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🥚 - Ovos (12UN)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🍪 - Trakinas Chocolate (2UN)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🍫 - Choco Trio (1UN)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🧀 - Mussarela (500g)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🥛 - Iogurte Misto Mini (3UN)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🧃 - Todynho (2UN)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🍬 - Caixa de Chocolate Lacta (1UN)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🥜 - Mix Castanhas (1UN)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🥛 - Leite Semi Hércules (1L)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🍅 - Tomates (3UN)</span>
+</div>
+
+<div class="item">
+<input type="checkbox" onchange="toggle(this)">
+<span>🍞 - Pão Integral Frutas Nutrella (1UN)</span>
+</div>
+
+<div class="divider">────────────</div>
+
+<div class="info">
 📌 Obs: Favor somar os itens e enviar o valor pelo WhatsApp
 </div>
 
-<div class="divider">_________</div>
+<div class="divider">────────────</div>
 
 <div class="info">
-  
-📍 Endereço: Rua Antônio Félix Neto (2297) -Mineiros do Tietê - Chamar no portão (Billy)
+📍 Endereço: Rua Antônio Félix Neto (2297) - Mineiros do Tietê - Chamar no portão (Billy)
 </div>
 
-<div class="divider">_________</div>
-  
+<div class="divider">────────────</div>
+
 <div class="info">
-  
 💳 Método/Pag: pagamento em domicílio via Alelo Voucher (VR)
 </div>
 
-<div class="divider">_________</div>
+<div class="divider">────────────</div>
 
-  <div class="footer">
-  © 2026 Billy Corp. All rights reserved.
-   </div>
+<div class="footer">
+© 2026 Billy Corp. All rights reserved.
+</div>
 
 <script>
-function toggle(el) {
+
+function toggle(el){
   el.parentElement.classList.toggle('checked');
 }
+
 </script>
 
 </body>
